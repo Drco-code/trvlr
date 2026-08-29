@@ -36,7 +36,7 @@ import {
 type Props = { name: string; className?: string; size?: number };
 
 export default function Icon({ name, className = "w-5 h-5", size = 20 }: Props) {
-  const common = { size, weight: "thin" as const, className };
+  const common = { size, weight: "regular" as const, className };
   switch (name) {
     case "plane": return <AirplaneTilt {...common} />;
     case "file-badge": return <FileText {...common} />;
@@ -45,7 +45,7 @@ export default function Icon({ name, className = "w-5 h-5", size = 20 }: Props) 
     case "compass": return <Compass {...common} />;
     case "bus": return <Bus {...common} />;
     case "car": return <Car {...common} />;
-    case "shield": return <ShieldCheck {...common} weight="light" />;
+    case "shield": return <ShieldCheck {...common} />;
     case "book": return <BookOpen {...common} />;
     case "graduation": return <GraduationCap {...common} />;
     case "users": return <Users {...common} />;
