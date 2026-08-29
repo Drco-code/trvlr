@@ -7,6 +7,7 @@ import TourCard from "@/components/sections/TourCard";
 import DestinationCard from "@/components/sections/DestinationCard";
 import Testimonials from "@/components/sections/Testimonials";
 import HeroSearch from "@/components/sections/HeroSearch";
+import HeroParallax from "@/components/ui/HeroParallax";
 import { services } from "@/lib/data/services";
 import { destinations } from "@/lib/data/destinations";
 import { tours } from "@/lib/data/tours";
@@ -18,53 +19,56 @@ export default function Home() {
 
   return (
     <div>
-      {/* Hero §5.1 — inspo: full-bleed Mt Fuji editorial + floating pill search */}
-      <section className="relative flex min-h-[86vh] flex-col justify-center overflow-hidden bg-[#0B1E3A] pb-20 md:pb-28">
-        <img
-          src="https://images.unsplash.com/photo-1492571350019-22de08371fd3?w=1920&q=80"
-          alt="Mt Fuji and pagoda"
-          className="animate-ken-burns absolute inset-0 h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B1E3A]/85 via-[#0B1E3A]/35 to-[#0B1E3A]/15" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1E3A]/30 via-transparent to-transparent" />
-        <div className="relative mx-auto w-full max-w-[1280px] px-4 py-14 md:px-6 md:py-20 lg:px-8">
-          <div className="max-w-[640px]">
-            <p className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-semibold tracking-[0.18em] text-white backdrop-blur" style={{ animationDelay: "0.05s" }}>
-              <span className="h-1.5 w-1.5 rounded-full bg-[#B8912F] animate-pulse" /> YOUR JOURNEY. OUR EXPERTISE.
-            </p>
-            <h1 className="animate-fade-up mt-4 font-serif text-[36px] font-semibold leading-[0.92] tracking-tight text-white md:text-[56px]" style={{ animationDelay: "0.14s" }}>
-              Explore the World
-              <br />
-              Without Limits
-            </h1>
-            <p className="animate-fade-up mt-4 max-w-[500px] text-[14px] leading-6 text-white/80 md:text-[15px]" style={{ animationDelay: "0.22s" }}>
-              Seamless journeys. Exceptional experiences. From Accra to the world — flights, visas, tours and bespoke planning in one place.
-            </p>
-            <div className="animate-fade-up mt-8 flex flex-col gap-3 sm:flex-row" style={{ animationDelay: "0.30s" }}>
-              <Link href="/quote" className="btn-gold inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold tracking-wide shadow-[0_6px_24px_rgba(184,145,47,0.35)]">
-                Book Your Trip <Icon name="arrow-right" size={16} />
-              </Link>
-              <Link href="/tours" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 px-7 py-3.5 text-sm font-semibold tracking-wide text-white backdrop-blur hover:bg-white hover:text-[#0B1E3A] transition-colors">
-                Explore Tours <Icon name="arrow-right" size={14} />
-              </Link>
-            </div>
-            <div className="mt-6 flex items-center gap-3 text-xs text-white/60">
-              <span className="flex -space-x-2">
-                <img src="https://i.pravatar.cc/100?img=8" alt="" className="h-7 w-7 rounded-full border-2 border-white/90 object-cover" />
-                <img src="https://i.pravatar.cc/100?img=12" alt="" className="h-7 w-7 rounded-full border-2 border-white/90 object-cover" />
-                <img src="https://i.pravatar.cc/100?img=32" alt="" className="h-7 w-7 rounded-full border-2 border-white/90 object-cover" />
-              </span>
-              <span>Trusted by 3,400+ travellers · 4.9/5</span>
+      {/* Hero §5.1 — GSAP parallax + stagger (replaces CSS ken-burns/fade-up) */}
+      <HeroParallax>
+        <section className="relative flex min-h-[86vh] flex-col justify-center overflow-hidden bg-[#0B1E3A] pb-20 md:pb-28">
+          <img
+            data-parallax
+            src="https://images.unsplash.com/photo-1492571350019-22de08371fd3?w=1920&q=80"
+            alt="Mt Fuji and pagoda"
+            className="absolute inset-0 h-[120%] w-full object-cover will-change-transform"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0B1E3A]/85 via-[#0B1E3A]/35 to-[#0B1E3A]/15" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0B1E3A]/30 via-transparent to-transparent" />
+          <div className="relative mx-auto w-full max-w-[1280px] px-4 py-14 md:px-6 md:py-20 lg:px-8">
+            <div data-hero-stagger className="max-w-[640px]">
+              <p className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-semibold tracking-[0.18em] text-white backdrop-blur">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#B8912F] animate-pulse" /> YOUR JOURNEY. OUR EXPERTISE.
+              </p>
+              <h1 className="mt-4 font-serif text-[36px] font-semibold leading-[0.92] tracking-tight text-white md:text-[56px]">
+                Explore the World
+                <br />
+                Without Limits
+              </h1>
+              <p className="mt-4 max-w-[500px] text-[14px] leading-6 text-white/80 md:text-[15px]">
+                Seamless journeys. Exceptional experiences. From Accra to the world — flights, visas, tours and bespoke planning in one place.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link href="/quote" className="btn-gold inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold tracking-wide shadow-[0_6px_24px_rgba(184,145,47,0.35)]">
+                  Book Your Trip <Icon name="arrow-right" size={16} />
+                </Link>
+                <Link href="/tours" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 px-7 py-3.5 text-sm font-semibold tracking-wide text-white backdrop-blur hover:bg-white hover:text-[#0B1E3A] transition-colors">
+                  Explore Tours <Icon name="arrow-right" size={14} />
+                </Link>
+              </div>
+              <div className="mt-6 flex items-center gap-3 text-xs text-white/60">
+                <span className="flex -space-x-2">
+                  <img src="https://i.pravatar.cc/100?img=8" alt="" className="h-7 w-7 rounded-full border-2 border-white/90 object-cover" />
+                  <img src="https://i.pravatar.cc/100?img=12" alt="" className="h-7 w-7 rounded-full border-2 border-white/90 object-cover" />
+                  <img src="https://i.pravatar.cc/100?img=32" alt="" className="h-7 w-7 rounded-full border-2 border-white/90 object-cover" />
+                </span>
+                <span>Trusted by 3,400+ travellers · 4.9/5</span>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Floating search pill — inspo Trivera bar */}
-        <div className="absolute inset-x-4 bottom-4 mx-auto max-w-[980px] md:inset-x-6 lg:inset-x-8">
-          <HeroSearch />
-          <p className="mt-2 text-center text-xs text-white/60 md:text-white/70">Or <Link href="/quote" className="underline decoration-white/40 hover:text-white">Request a custom quote</Link> — we handle visas, flights & planning.</p>
-        </div>
-      </section>
+          {/* Floating search pill — inspo Trivera bar */}
+          <div className="absolute inset-x-4 bottom-4 mx-auto max-w-[980px] md:inset-x-6 lg:inset-x-8">
+            <HeroSearch />
+            <p className="mt-2 text-center text-xs text-white/60 md:text-white/70">Or <Link href="/quote" className="underline decoration-white/40 hover:text-white">Request a custom quote</Link> — we handle visas, flights & planning.</p>
+          </div>
+        </section>
+      </HeroParallax>
 
       <TrustStrip />
 
