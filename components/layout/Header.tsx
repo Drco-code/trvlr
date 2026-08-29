@@ -35,8 +35,8 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-40 transition-all duration-300 ${
-          solid ? "bg-[#0B1E3A] shadow-[0_4px_24px_rgba(0,0,0,0.18)]" : "bg-transparent"
+        className={`fixed inset-x-0 top-0 z-40 border-b transition-all duration-300 ${
+          solid ? "bg-[#0B1E3A]/85 backdrop-blur-xl border-white/10 shadow-[0_4px_24px_rgba(11,30,58,0.12)] supports-[backdrop-filter]:bg-[#0B1E3A]/70" : "bg-transparent border-transparent"
         }`}
       >
         <div className="mx-auto flex h-[68px] max-w-[1280px] items-center justify-between px-4 md:px-6 lg:px-8">
