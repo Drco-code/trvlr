@@ -40,8 +40,8 @@ export default function HeroSearch() {
             </select>
           </span>
         </label>
-        <Link href="/tours" className="btn-gold inline-flex shrink-0 items-center justify-center gap-2 rounded-full px-8 py-3.5 text-sm font-semibold tracking-wide md:py-3">
-          Search <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#0B1E3A] text-white"><Icon name="search" size={12} /></span>
+        <Link href="/tours" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#0B1E3A] px-8 py-3.5 text-sm font-semibold tracking-wide text-white hover:bg-[#13294B] transition-colors md:py-3">
+          Search <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#B8912F] text-[#0B1E3A]"><Icon name="search" size={12} /></span>
         </Link>
       </form>
     </div>
